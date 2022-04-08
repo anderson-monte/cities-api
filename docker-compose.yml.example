@@ -1,0 +1,36 @@
+services:
+  db:
+    container_name: pg-cities
+    image: postgres:14.2-alpine3.15
+    restart: always
+    volumes:
+      - db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB:
+      POSTGRES_USER:
+      POSTGRES_PASSWORD:
+  adminer:
+    container_name: adminer-cities
+    image: adminer
+    restart: always
+    environment:
+      ADMINER_DESIGN: 'pepa-linha'
+    ports:
+      - "8888:8080"
+  app:
+    container_name: cities-spring
+    build:
+      context: ./
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+      - "5005:5005"
+    environment:
+      ADDITIONAL_OPS: -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005
+      SPRING_DATASOURCE_URL: jdbc:postgresql://(DOCKER_SERVICE_NAME):5432/(POSTGRES_DB)
+      SPRING_DATASOURCE_USERNAME: (POSTGRES_USER)
+      SPRING_DATASOURCE_PASSWORD: (POSTGRES_PASSWORD)
+volumes:
+  db:
