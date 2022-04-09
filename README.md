@@ -14,7 +14,7 @@ It was made during the DIO challenge.
 ## Getting Started
 ### Installing
 #### Prerequisites
->You can download the Docker and follow the instructions and read the Docker Documentation from [here](https://docs.docker.com/).
+>You can download Docker and follow the instructions and read the Docker Documentation from [here](https://docs.docker.com/).
 #### Docker-compose.yml
 
 Open the file and set the environment variables. 
@@ -31,7 +31,7 @@ environment:
 ````
 
 
-## DataBase
+## Database
 
 ### Populate
 
@@ -84,7 +84,7 @@ select earth_distance(
 
 #### Download the POSTMAN or other.
 
-```shell
+```
 #list all cities
 http://localhost:8000/cities
 #list all contries
@@ -97,7 +97,7 @@ http://localhost:8000/states
 
 #### Using the distance feature
 
-```shell
+```
 #example
 http://localhost:8000/distances/by-points?from=54&to=3456
 #Result
