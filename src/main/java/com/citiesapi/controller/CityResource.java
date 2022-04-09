@@ -1,15 +1,14 @@
 package com.citiesapi.controller;
 
-import java.util.List;
-
+import com.citiesapi.model.City;
+import com.citiesapi.repository.CityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.citiesapi.model.City;
-import com.citiesapi.repository.CityRepository;
+import java.util.List;
 
 @RestController
 @RequestMapping("/cities")
